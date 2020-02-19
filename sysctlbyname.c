@@ -26,8 +26,7 @@ int
 sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
     void *newp, size_t newlen)
 {
-	int mib[3];
-	u_int n;
+	int mib[2];
 
 	for (size_t i = 0; i < sizeof(sn) / sizeof(sn[0]); i++) {
 		if (name[0] != sn[i].name[0])
@@ -36,17 +35,8 @@ sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
 		if (!strcmp(name, sn[i].name)) {
 			mib[0] = sn[i].mib0;
 			mib[1] = sn[i].mib1;
-			mib[2] = sn[i].mib2;
 
-			/*
-			 * We need to know how many mibs we used.
-			 */
-			if (mib[2] == 0)
-				n = 2;
-			else
-				n = 3;
-
-			return sysctl(mib, n, oldp, oldlenp, newp, newlen);
+			return sysctl(mib, 2, oldp, oldlenp, newp, newlen);
 		}
 	}
 
