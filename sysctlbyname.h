@@ -97,7 +97,6 @@ struct sysctlnames {
 	{ "kern.consbufsize",	CTL_KERN,	KERN_CONSBUFSIZE,	0 },
 	{ "kern.consbuf",	CTL_KERN,	KERN_CONSBUF,		0 },
 	{ "kern.audio",		CTL_KERN,	KERN_AUDIO,		0 },
-	{ "kern.audio.record",	CTL_KERN,	KERN_AUDIO,		KERN_AUDIO_RECORD },
 	{ "kern.cpustats",	CTL_KERN,	KERN_CPUSTATS,		0 },
 	{ "kern.pfstatus",	CTL_KERN,	KERN_PFSTATUS,		0 },
 	{ "kern.timeout_stats",	CTL_KERN,	KERN_TIMEOUT_STATS,	0 },
@@ -114,7 +113,6 @@ struct sysctlnames {
 	{ "vm.maxslp",		CTL_VM,		VM_MAXSLP,		0 },
 	{ "vm.uspace",		CTL_VM,		VM_USPACE,		0 },
 	{ "vm.malloc_conf",	CTL_VM,		VM_MALLOC_CONF,		0 },
-	{ "fs.posix.setuid",	CTL_FS,		FS_POSIX,		FS_POSIX_SETUID },
 	{ "hw.machine",		CTL_HW,		HW_MACHINE,		0 },
 	{ "hw.model",		CTL_HW,		HW_MODEL,		0 },
 	{ "hw.ncpu",		CTL_HW,		HW_NCPU,		0 },
@@ -136,4 +134,5 @@ struct sysctlnames {
 	{ "hw.perfpolicy",	CTL_HW,		HW_PERFPOLICY,		0 },
 	{ "hw.smt",		CTL_HW,		HW_SMT,			0 },
 	{ "hw.ncpuonline",	CTL_HW,		HW_NCPUONLINE,		0 },
+	{ NULL,			0,		0,			0 },
 };
