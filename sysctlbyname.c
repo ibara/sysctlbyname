@@ -29,9 +29,6 @@ sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
 	int mib[2];
 
 	for (size_t i = 0; i < sizeof(sn) / sizeof(sn[0]); i++) {
-		if (name[0] != sn[i].name[0])
-			continue;
-
 		if (!strcmp(name, sn[i].name)) {
 			mib[0] = sn[i].mib0;
 			mib[1] = sn[i].mib1;
