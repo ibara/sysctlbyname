@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Brian Callahan <bcallah@openbsd.org>
+ * Copyright (c) 2019-2021 Brian Callahan <bcallah@openbsd.org>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -20,18 +20,18 @@
 #include <errno.h>
 #include <string.h>
 
-#include "sysctlbyname.h"
+#include "internal.h"
 
 int
 sysctlbyname(const char *name, void *oldp, size_t *oldlenp,
     void *newp, size_t newlen)
 {
-	int mib[2];
+	int i, mib[2];
 
-	for (size_t i = 0; i < sizeof(sn) / sizeof(sn[0]); i++) {
-		if (!strcmp(name, sn[i].name)) {
-			mib[0] = sn[i].mib0;
-			mib[1] = sn[i].mib1;
+	for (i = 0; i < sizeof(sysctlnames) / sizeof(sysctlnames[0]); i++) {
+		if (!strcmp(name, sysctlnames[i].name)) {
+			mib[0] = sysctlnames[i].mib0;
+			mib[1] = sysctlnames[i].mib1;
 
 			return sysctl(mib, 2, oldp, oldlenp, newp, newlen);
 		}

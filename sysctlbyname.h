@@ -14,13 +14,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-struct sysctlnames {
-	const char *name;
-	int mib0;
-	int mib1;
-	int mib2;
-} sn[] = {
-	{ "kern.maxfiles",	CTL_KERN,	KERN_MAXFILES,		0 },
-	{ "kern.cp_time",	CTL_KERN,	KERN_CPTIME,		0 },
-	{ "hw.ncpu",		CTL_HW,		HW_NCPU,		0 },
-};
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
+extern int sysctlbyname(const char *, void *, size_t *, void *, size_t);

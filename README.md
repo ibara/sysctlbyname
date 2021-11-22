@@ -15,6 +15,4 @@ OpenBSD is the only \*BSD not to provide `sysctlbyname`. Non-BSD people looking
 to provide compatability through the `sysctl` interface probably aren't going
 to look up the MIB defines or even necessarily know what they are. As such the
 `sysctlbyname` function provides a useful abstraction layer to make porting to
-\*BSD easier. I've only ever seen relatively basic usage of `sysctlbyname`,
-usually to get some stats under hw.* making this implementation sufficient to
-handle probably all use cases.
+\*BSD easier.
